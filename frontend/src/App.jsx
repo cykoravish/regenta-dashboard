@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import AdminDashboard from "./Components/admin/AdminDashboard";
-import ProtectedRoute from "./Components/adminProtectedRoute/ProtectedRoute";
-import Login from "./Components/admin/Login";
+import AdminDashboard from "./components/admin/AdminDashboard";
+import ProtectedRoute from "./components/adminProtectedRoute/ProtectedRoute";
+import Login from "./components/admin/Login";
 
 function App() {
   return (
