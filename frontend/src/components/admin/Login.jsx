@@ -9,8 +9,9 @@ function Login() {
     emailOrPhone: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated, adminLogin, loading } = useAuth();
+  const { isAuthenticated, adminLogin } = useAuth();
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/admin/dashboard");
@@ -19,11 +20,14 @@ function Login() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await adminLogin(userData);
       toast.success("Login successful!", { id: "login-toast" });
     } catch (error) {
       toast.error(error.message, { id: "login-toast" });
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -74,7 +78,6 @@ function Login() {
                 className="w-full mb-4 mt-2 p-3 bg-[#EEF0FB] rounded focus:outline-none focus:ring-2 focus:ring-gray-500 placeholder:text-[#333333] text-sm"
               />
             </div>
-
             <button
               type="submit"
               disabled={loading}
