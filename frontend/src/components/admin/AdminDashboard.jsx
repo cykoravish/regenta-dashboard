@@ -421,7 +421,8 @@ function AdminDashboard() {
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-green-600">
-                      ₹{payment.amount.toLocaleString()}
+                      ₹{payment?.amount?.toLocaleString()}
+                      {console.log("payment: ", payment)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                       {new Date(payment.createdAt).toLocaleDateString("en-IN")}

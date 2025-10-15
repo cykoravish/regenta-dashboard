@@ -66,6 +66,7 @@ app.post(
 app.get("/api/payments", async (req, res) => {
   try {
     const payments = await Payment.find().sort({ createdAt: -1 }); // latest first
+
     res.json({ success: true, verifyToken, data: payments });
   } catch (err) {
     res.status(500).json({ success: false, error: "Failed to fetch payments" });
